@@ -1,0 +1,6 @@
+Results
+
+Once all the other Notebooks have been ran the Results generation notebook extracts the metrics from the log files output during OpenNMT train. 
+Input the file path into the function and it will produce the graphs.
+
+For the Feedforward and Rough set. Their respective notebooks should have output their test metrics as text files with can be imported into the notebook and plotted as bar chart.

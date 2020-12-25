@@ -1,0 +1,13 @@
+Open NMT 
+
+Machine Specs *** 16G RAM, 8GB NVIDIA RTX 2070 Super, Intel Core i7 2.9GHz ***  
+
+1. First get the nucleotide sequences using the function provided in the OpenNMT.ipynb Jupyter Notebooks, use the functions to wrangle the nucleotide sequences into text files.
+2. Once the seqeunces are in a text file run the pre-process funtion through command line with the default settings.
+3. Once the vpre-processing files have been generated use the train function to train the model and the following guideline settings.
+	onmt_train -data non_spaced -layers 30 -rnn_size 1000 -rnn_type LSTM -batch_size 3 -dropout 0.3 -learning_rate 0.2 -valid_batch_size 1 -optim sgd -train_steps 30000 -normalization tokens -adam_beta2 0.98 -save_model gpu_non_spaced_5 -log_file train_log_0 -tensorboard -tensorboard_log_dir gpu_model -world_size 1 -gpu_ranks 0
+3a. Supplying the pre-processed data products in the data section. Model can be as small as 10 layers with 512 units and can be made as large as the computer GPU will allow, take extra care with the batchsizes. Dropout can also be set up to 0.8. Though no improvement in training accuracy will be observed.
+4. Once the model is trained the translation function is to be used with the following settings.
+	onmt_translate -model pt-filepath -src x_test.txt -tgt y_test.txt -gpu 0 -batch_size 10 -log_file test_metrics -output y_pred_5.txt -replace_unk
+5. The Gold metrics provide guidance to models performance, aim to get Gold PPL as close to 1 as possible. Import predicted output file into a notebook and compare to target test data, filter out any predicted sequences with less than 0.006 similarity.
+ 	

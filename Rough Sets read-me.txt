@@ -1,0 +1,6 @@
+Rough Sets
+
+1. Import a viral dataset from the same species. Code in the Notebook has a script that groups the sequences by length and prints out their quantity and index.
+2. Select an index with at least 3 sequences, run rough set algorithm on the first two nucleotide sequences and use the resultant libraries to predict the next generation.
+	***Can use more than 2 generations' worth of sequences but runtime can be long and has no effect on accuracy as it is rule based***
+3. Compare the prediction to the third nucleotide sequence elementwise.

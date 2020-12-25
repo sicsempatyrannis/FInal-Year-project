@@ -1,0 +1,4 @@
+Feedforward Nerual Network 
+
+1. Input the filepath of the fasta file.
+2. Run Notebook through. Implements a simple feedforward neural network through Keras.
